@@ -1,0 +1,34 @@
+summary: "Find Premium Companies"
+get:
+  description: |-
+    This endpoint returns list of Premium Companies.
+  tags:
+    - premiumCompanies
+  operationId: findPremiumCompanies
+  parameters:
+    - name: query
+      in: query
+      description: Company identifier
+      required: false
+      schema:
+        type: string
+    - $ref: '../commonParameters.yaml#/page'
+    - $ref: '../commonParameters.yaml#/size'
+  responses:
+    200:
+      description: |
+        Returns list of Premium Companies.
+      content:
+        application/json:
+          schema:
+            $ref: '../models/PremiumCompanies.yaml'
+    400:
+      description: '400 - The request was malformed or missing a field.'
+      content:
+        application/json:
+          schema: { $ref: '../models/Error.yaml' }
+    503:
+      description: '503 - The Service is unavailable.'
+      content:
+        application/json:
+          schema: { $ref: '../models/Error.yaml' }

@@ -1,0 +1,20 @@
+type: object
+properties:
+  pageNumber:
+    type: integer
+    description: Searched page number of result set found.
+  pageSize:
+    type: integer
+    description: Size of returned page result set.
+  totalPages:
+    type: integer
+    description: Total pages exists by applied search criteria.
+  totalElements:
+    type: integer
+    description: Total number of elements
+required:
+  - page
+  - totalPages
+  - pageSize
+  - totalItems
+

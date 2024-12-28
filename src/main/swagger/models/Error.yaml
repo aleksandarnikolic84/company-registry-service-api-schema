@@ -1,0 +1,20 @@
+description: Optional information about how the request was bad.
+type: object
+properties:
+  error:
+    description: >-
+      Readable message describing the result
+    type: string
+  error_code:
+    type: string
+    description: Http status code of response
+  timestamp:
+    type: string
+    format: date-time
+    description: Timestamp of error
+  reasons:
+    type: object
+    additionalProperties:
+      type: string
+    description: >-
+      If this error was due to a particular field, this is the name of field and error description

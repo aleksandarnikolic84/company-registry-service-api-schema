@@ -1,0 +1,51 @@
+plugins {
+    id "org.openapi.generator"
+    id 'java-library'
+    id 'maven-publish'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs("src/main/swagger")
+        }
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+openApiValidate {
+    inputSpec = "$rootDir/src/main/swagger/api.yaml".toString()
+}
+
+publishing {
+    publications {
+        create("myLib",MavenPublication) {
+            groupId = 'com.incode'
+             artifactId = 'company-registry-service-api-schema'
+             version = '0.8.0-SNAPSHOT'
+            from components.java
+        }
+    }
+    repositories {
+
+        maven {
+            url "https://maven.pkg.github.com/aleksandarnikolic84/company-registry-service-api-schema"
+            credentials {
+                username = "aleksandarnikolic84"
+                password = "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"
+            }
+        }
+    }
+}
+
+// Wait for the code to be generated before compiling the project code.
+tasks.build.dependsOn tasks.openApiValidate
+        tasks.publish.dependsOn tasks.build
+        tasks.publishToMavenLocal.dependsOn tasks.build

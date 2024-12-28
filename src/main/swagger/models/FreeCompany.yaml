@@ -1,0 +1,25 @@
+type: object
+properties:
+  cin:
+    type: string
+    description: Company identification number
+  company_name:
+    type: string
+    description: Company name
+  registration_date:
+    type: string
+    format: date
+    description: Company registration name
+    example: 2024-12-22
+  address:
+    type: string
+    description: Company address
+  is_active:
+    type: boolean
+    description: Company active
+required:
+  - cin
+  - company_name
+  - registration_date
+  - address
+  - is_active

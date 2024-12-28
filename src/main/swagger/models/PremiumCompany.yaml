@@ -1,0 +1,25 @@
+type: object
+properties:
+  companyIdentificationNumber:
+    type: string
+    description: Company identification number
+  companyName:
+    type: string
+    description: Company name
+  registrationDate:
+    type: string
+    format: date
+    description: Company registration name
+    example: 2024-12-22
+  companyFullAddress:
+    type: string
+    description: Company address
+  isActive:
+    type: boolean
+    description: Company active
+required:
+  - companyIdentificationNumber
+  - companyName
+  - registrationDate
+  - companyFullAddress
+  - isActive
