@@ -1,0 +1,13 @@
+type: object
+description: |-
+  List of Premium Companies.
+properties:
+  companies:
+    type: array
+    description: List of Premium Companies
+    items:
+      $ref: 'PremiumCompany.yaml'
+    minItems: 0
+  pagination:
+    $ref: 'Pagination.yaml'
+required: [ companies ]

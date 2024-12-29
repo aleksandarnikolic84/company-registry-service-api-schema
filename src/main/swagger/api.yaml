@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  description: OpenAPI Schema for Company registry service
+  title: company-registry-service-api
+  version: "0.1"
+servers:
+  - url: "{server}:{port}/api/company-registry"
+    variables:
+      server:
+        default: http://localhost
+        description: Server base url
+      port:
+        enum:
+          - '443'
+          - '8443'
+          - '8085'
+        default: '8085'
+paths:
+  /v1/free-third-party:
+    $ref: './v1/freeCompanies.yaml'
+  /v1/premium-third-party:
+    $ref: './v1/premiumCompanies.yaml'

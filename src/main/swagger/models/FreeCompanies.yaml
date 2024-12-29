@@ -1,0 +1,13 @@
+type: object
+description: |-
+  List of Free Companies.
+properties:
+  companies:
+    type: array
+    description: List of Free Companies
+    items:
+      $ref: 'FreeCompany.yaml'
+    minItems: 0
+  pagination:
+    $ref: 'Pagination.yaml'
+required: [ companies ]
